@@ -3,7 +3,7 @@ syntax = "proto3";
 package com.rr.authadi;
 
 option java_multiple_files = true;
-option java_package = "com.rr.authadi.proto";
+option java_package = "com.rr.proto.authadi";
 
 service UserImmigration {
     rpc addUserIdentity(UserImmigrationRequest) returns (UserImmigrationResponse) {}
