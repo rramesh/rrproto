@@ -1,8 +1,12 @@
 import com.google.protobuf.gradle.*
 import org.gradle.api.tasks.bundling.Jar
+import org.jetbrains.kotlin.konan.properties.loadProperties
 
-group = "com.rr.proto"
+group = "com.rr"
+description = "Generated protobuf classes for use with services in other repos"
 version = "1.0.0"
+
+val properties = loadProperties("local.properties")
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
@@ -78,15 +82,14 @@ publishing {
             name = "rrproto"
             url = uri("https://maven.pkg.github.com/rramesh/rrproto")
             credentials{
-                username = project.findProperty("proto.gh.user") as String? ?: System.getenv("PROTO_GH_USERNAME")
-                password = project.findProperty("proto.gh.key") as String? ?: System.getenv("PROTO_GH_KEY")
+                username = properties.get("proto.gh.user") as String? ?: System.getenv("PROTO_GH_USERNAME")
+                password = properties.get("proto.gh.key") as String? ?: System.getenv("PROTO_GH_KEY")
             }
         }
     }
     publications {
-        register("rrproto", MavenPublication::class) {
+        register("proto", MavenPublication::class) {
             from(components["java"])
-            artifact(sourcesJar.get())
         }
     }
 }
