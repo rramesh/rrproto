@@ -12,3 +12,5 @@ build
 src/main/java
 src/main/grpc
 src/main/grpckotlin
+
+local.properties
