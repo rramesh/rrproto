@@ -1,0 +1,2 @@
+#### Protobuf files for services ####
+Generic repository to hold protobuf files for services. Gradle script generates source, builds jar and publishes. It is then used in services (example: authadi) that work based on gRPC. 

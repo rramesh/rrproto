@@ -1,0 +1,14 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore IDE specific files
+.idea
+
+# Ignore Gradle build output directory
+build
+
+# We are interested in pushing only proto files
+# and publishing usable jars, hence ignore generated source files
+src/main/java
+src/main/grpc
+src/main/grpckotlin
