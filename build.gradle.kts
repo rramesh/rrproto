@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.konan.properties.loadProperties
 
 group = "com.rr"
 description = "Generated protobuf classes for use with services in other repos"
-version = "1.0.0"
+version = "1.0.1"
 
 val properties = loadProperties("local.properties")
 
@@ -17,7 +17,6 @@ plugins {
     id("com.google.protobuf") version "0.8.10"
 
     java
-    application
     `maven-publish`
 }
 

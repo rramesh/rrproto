@@ -5,8 +5,13 @@ package com.rr.authadi;
 option java_multiple_files = true;
 option java_package = "com.rr.proto.authadi";
 
+/*
+User Immigration Service represents ability to make new user identity entries
+It also represents requests to update password, resent client/secret request entries
+of existing user identity
+*/
 service UserImmigration {
-    rpc addUserIdentity(UserImmigrationRequest) returns (UserImmigrationResponse) {}
+    rpc addUserIdentity(UserImmigrationRequest) returns (UserImmigrationResponse);
 }
 
 message UserImmigrationRequest {

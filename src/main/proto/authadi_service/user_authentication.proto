@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package com.rr.authadi;
+
+option java_multiple_files = true;
+option java_package = "com.rr.proto.authadi";
+
+/*
+User Authentication Service represents authenticating user against password or OTP and
+2FA mechanisms like OTP and authenticator libraries. The presumption is the server returns
+a token (JWT/JWS preferred). It also represents request to validated the token.
+*/
+
+service UserAuthentication {
+    rpc passwordAuthenticate(PasswordAuthenticationRequest) returns (PasswordAuthenticationResponse);
+    rpc validateUserSession(UserSessionRequest) returns (UserSessionResponse);
+}
+
+message PasswordAuthenticationRequest {
+    string userKey = 1;
+    string password = 2;
+}
+
+message PasswordAuthenticationResponse {
+    bool success = 1;
+    string bearerToken = 2;
+}
+
+message UserSessionRequest {
+    string uuid = 1;
+    enum TokenType {
+        BEARER = 0;
+        API_KEY = 1;
+    }
+    string bearerToken = 2;
+}
+
+message UserSessionResponse {
+    bool success = 1;
+}
