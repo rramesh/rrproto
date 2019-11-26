@@ -23,7 +23,9 @@ message PasswordAuthenticationRequest {
 
 message PasswordAuthenticationResponse {
     bool success = 1;
-    string bearerToken = 2;
+    string message = 2;
+    string uuid = 3;
+    string bearerToken = 4;
 }
 
 message UserSessionRequest {
@@ -37,4 +39,5 @@ message UserSessionRequest {
 
 message UserSessionResponse {
     bool success = 1;
+    string message = 2;
 }
