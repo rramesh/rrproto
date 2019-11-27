@@ -25,16 +25,20 @@ message PasswordAuthenticationResponse {
     bool success = 1;
     string message = 2;
     string uuid = 3;
-    string bearerToken = 4;
+    string uRefId = 4;
+    string bearerToken = 5;
 }
 
 message UserSessionRequest {
-    string uuid = 1;
+    oneof id {
+        string uuid = 1;
+        string uRefId = 2;
+    }
     enum TokenType {
         BEARER = 0;
         API_KEY = 1;
     }
-    string bearerToken = 2;
+    string bearerToken = 3;
 }
 
 message UserSessionResponse {
