@@ -38,7 +38,7 @@ message UserSessionRequest {
         BEARER = 0;
         API_KEY = 1;
     }
-    string bearerToken = 3;
+    string token = 3;
 }
 
 message UserSessionResponse {
