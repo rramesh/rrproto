@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.konan.properties.loadProperties
 
 group = "com.rr"
 description = "Generated protobuf classes for use with services in other repos"
-version = "1.0.2-p02"
+version = "1.0.3"
 
 val properties = loadProperties("local.properties")
 

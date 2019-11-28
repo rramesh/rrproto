@@ -10,6 +10,10 @@ User Authentication Service represents authenticating user against password or O
 2FA mechanisms like OTP and authenticator libraries. The presumption is the server returns
 a token (JWT/JWS preferred). It also represents request to validated the token.
 */
+enum TokenType {
+    BEARER = 0;
+    API_KEY = 1;
+}
 
 service UserAuthentication {
     rpc passwordAuthenticate(PasswordAuthenticationRequest) returns (PasswordAuthenticationResponse);
@@ -26,17 +30,14 @@ message PasswordAuthenticationResponse {
     string message = 2;
     string uuid = 3;
     string uRefId = 4;
-    string bearerToken = 5;
+    TokenType tokenType = 5;
+    string token = 6;
 }
 
 message UserSessionRequest {
     oneof id {
         string uuid = 1;
         string uRefId = 2;
-    }
-    enum TokenType {
-        BEARER = 0;
-        API_KEY = 1;
     }
     TokenType tokenType = 3;
     string token = 4;
